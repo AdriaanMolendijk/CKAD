@@ -181,7 +181,7 @@ spec:
 ```
 
 ```
-terminal ~ k logs busybox | grep env
+$ k logs busybox | grep env
 env1=val1
 env2=val2
 ```
@@ -242,7 +242,7 @@ k apply -f secret.yaml
 ```
 
 ```
-terminal ~ echo "ZGVjcnlwdC1tZS1wbGVhc2U=" | base64 --decode
+$ echo "ZGVjcnlwdC1tZS1wbGVhc2U=" | base64 --decode
 decrypt-me-please
 ```
 
@@ -347,7 +347,7 @@ spec:
 ```
 
 ```
-terminal ~ k exec -it nginx -- sh
+$ k exec -it nginx -- sh
 ```
 
 ```
@@ -381,7 +381,7 @@ k describe node docker-desktop | grep Taint
 ```
 We get the following output (this obviously differs per cluster).
 ```
-terminal ~ k describe node docker-desktop | grep Taint
+$ k describe node docker-desktop | grep Taint
 Taints:             <none>
 ```
 

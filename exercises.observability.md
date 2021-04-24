@@ -30,7 +30,7 @@ spec:
 
 We observe the pod on startup. Watch how the pod restarts after a specific time period, i.e. when it fails the livenessprobe.
 ```
-terminal ~ k get po --watch
+$ k get po --watch
 NAME      READY   STATUS              RESTARTS   AGE
 busybox   0/1     ContainerCreating   0          3s
 busybox   1/1     Running             0          4s
@@ -68,7 +68,7 @@ spec:
 ```
 We observe the pod on startup. Notice the time it takes for the pod to be ready.
 ```
-terminal ~ k get po --watch
+$ k get po --watch
 NAME    READY   STATUS    RESTARTS   AGE
 nginx   0/1     Running   0          4s
 nginx   1/1     Running   0          14s
@@ -103,7 +103,7 @@ k run busybox --image=busybox --command -- echo 'hello world'
 ```
 We check the logs.
 ```
-terminal ~ k logs busybox
+$ k logs busybox
 hello world
 ```
 

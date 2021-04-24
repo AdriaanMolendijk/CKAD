@@ -6,7 +6,7 @@
 <p>
 
 ```
-terminal ~ k get svc
+$ k get svc
 NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   104s
 ```
@@ -28,7 +28,7 @@ k run nginx --image=nginx --port 80
 ```
 
 ```
-terminal ~ k get po -o wide
+$ k get po -o wide
 NAME           READY   STATUS        RESTARTS   AGE    IP          NODE     NOMINATED NODE   READINESS GATES
 busybox        1/1     Running       0          30s    10.32.0.7   node01   <none>           <none>
 nginx          1/1     Running       0          20s    10.32.0.8   node01   <none>           <none>
@@ -36,7 +36,7 @@ nginx          1/1     Running       0          20s    10.32.0.8   node01   <non
 
 Let's see if we can connect to the nginx pod.
 ```
-terminal ~ k exec -it busybox -- sh
+$ k exec -it busybox -- sh
 ```
 ```
 busybox ~ wget 10.32.0.8:80
@@ -91,18 +91,18 @@ k run nginx --image=nginx --port 80
 ```
 
 ```
-terminal ~ expose pod nginx --port=80 --name=nginx
+$ expose pod nginx --port=80 --name=nginx
 service/nginx exposed
 ```
 ```
-terminal ~ k get svc
+$ k get svc
 NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP   8m49s
 nginx        ClusterIP   10.99.214.196   <none>        80/TCP    2s
 ```
 
 ```
-terminal ~ k exec -it busybox -- sh
+$ k exec -it busybox -- sh
 ```
 
 ```
@@ -131,24 +131,24 @@ k run nginx --image=nginx --port 80
 ```
 
 ```
-terminal ~ k expose pod nginx --port=80 --type=NodePort
+$ k expose pod nginx --port=80 --type=NodePort
 service/nginx exposed
 ```
 ```
-terminal ~ k get node -o wide
+$ k get node -o wide
 NAME           STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
 controlplane   Ready    master   13m   v1.19.0   172.17.0.71   <none>        Ubuntu 18.04.5 LTS   4.15.0-122-generic   docker://19.3.13
 node01         Ready    <none>   13m   v1.19.0   172.17.0.72   <none>        Ubuntu 18.04.5 LTS   4.15.0-122-generic   docker://19.3.13
 ```
 ```
-terminal ~ k get svc
+$ k get svc
 NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
 kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP        13m
 nginx        NodePort    10.101.53.210   <none>        80:30583/TCP   36s
 ```
 
 ```
-terminal ~ k exec -it busybox -- sh
+$ k exec -it busybox -- sh
 ```
 
 ```
@@ -225,7 +225,7 @@ spec:
 
 Let's check out the pods first.
 ```
-terminal ~ k get pod -o wide
+$ k get pod -o wide
 NAME     READY   STATUS    RESTARTS   AGE     IP         NODE             NOMINATED NODE   READINESS GATES
 nginx    1/1     Running   0          6m46s   10.1.1.5   docker-desktop   <none>           <none>
 nginx2   1/1     Running   0          6m46s   10.1.1.6   docker-desktop   <none>           <none>
@@ -234,7 +234,7 @@ nginx4   1/1     Running   0          4m5s    10.1.1.8   docker-desktop   <none>
 ```
 Apply the network policy file and describe the network policy.
 ```
-terminal ~ k describe netpol
+$ k describe netpol
 Name:         restricted-out
 Namespace:    default
 Created on:   2021-01-16 10:56:13 +0100 CET

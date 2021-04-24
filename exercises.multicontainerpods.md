@@ -32,14 +32,14 @@ k get pod multi-pod
 ```
 Not the 2/2 ready in the output.
 ```
-terminal ~ k get pod multi-pod
+$ k get pod multi-pod
 NAME        READY   STATUS    RESTARTS   AGE
 multi-pod   2/2     Running   0          72s
 ```
 
 Lets check the logs.
 ```
-terminal ~ k logs multi-pod mars
+$ k logs multi-pod mars
 hello
 ```
 

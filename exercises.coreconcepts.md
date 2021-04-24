@@ -292,7 +292,7 @@ k exec -it ubuntu -- sh
 ```
 Then inside the pod check whether creation was successful.
 ```
-terminal ~ ls | grep mydir
+$ ls | grep mydir
 mydir
 ```
 

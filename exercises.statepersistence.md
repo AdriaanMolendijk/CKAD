@@ -63,7 +63,7 @@ spec:
 ```
 
 ```
-terminal ~ k exec -it busybox -- ls -al /credentials
+$ k exec -it busybox -- ls -al /credentials
 total 4
 drwxrwxrwt    3 root     root           120 Jan 16 10:50 .
 drwxr-xr-x    1 root     root          4096 Jan 16 10:50 ..
@@ -136,12 +136,12 @@ spec:
 
 Let's check whether the deployment was successful and that our configuration was correct.
 ```
-terminal ~ k get pod -o wide
+$ k get pod -o wide
 NAME      READY   STATUS    RESTARTS   AGE   IP          NODE           NOMINATED NODE   READINESS GATES
 busybox   1/1     Running   0          53s   10.44.0.1   controlplane   <none>           <none>
 ```
 ```
-terminal ~ k exec -it busybox -- ls mybusybox
+$ k exec -it busybox -- ls mybusybox
 empty.txt
 ```
 

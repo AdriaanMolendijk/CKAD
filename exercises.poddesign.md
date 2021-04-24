@@ -9,7 +9,7 @@ k run busybox --image=busybox -l env=dev
 ```
 We check whether pod ran successfully. 
 ```
-terminal ~ k get pod --show-labels
+$ k get pod --show-labels
 NAME      READY   STATUS             RESTARTS   AGE   LABELS
 busybox   0/1     CrashLoopBackOff   2          38s   env=dev
 ```
@@ -68,7 +68,7 @@ spec:
 <p>
 
 ```
-terminal ~ k get pod --show-labels -l env=prod
+$ k get pod --show-labels -l env=prod
 NAME       READY   STATUS             RESTARTS   AGE   LABELS
 busybox    0/1     CrashLoopBackOff   1          24s   env=prod
 busybox3   0/1     CrashLoopBackOff   1          24s   env=prod
@@ -102,7 +102,7 @@ k create deploy nginx --image=nginx --replicas=3 --port=80
 ```
 Next whether we check wether the deployment is running. Notice the ready column in the output.
 ```
-terminal ~ k get deploy
+$ k get deploy
 NAME    READY   UP-TO-DATE   AVAILABLE   AGE
 nginx   3/3     3            3           9s
 ```
@@ -144,7 +144,7 @@ spec:
 ```
 Let's check the status of the deployment.
 ```
-terminal ~ k rollout status deploy busybox
+$ k rollout status deploy busybox
 deployment "busybox" successfully rolled out
 ```
 </p>
@@ -162,7 +162,7 @@ k edit deploy busybox
 ```
 Let's check the rollout status.
 ```
-terminal ~ k rollout status deploy busybox 
+$ k rollout status deploy busybox 
 Waiting for deployment "busybox" rollout to finish: 1 old replicas are pending termination...
 Waiting for deployment "busybox" rollout to finish: 1 old replicas are pending termination...
 Waiting for deployment "busybox" rollout to finish: 1 old replicas are pending termination...
@@ -171,12 +171,12 @@ deployment "busybox" successfully rolled out
 ```
 
 ```
-terminal ~ k rollout undo deploy busybox
+$ k rollout undo deploy busybox
 deployment.apps/busybox rolled back
 ```
 
 ```
-terminal ~ k rollout history deploy busybox
+$ k rollout history deploy busybox
 deployment.apps/busybox 
 REVISION  CHANGE-CAUSE
 2         <none>
@@ -240,7 +240,7 @@ k scale deploy busybox --replicas=2
 <p>
 
 ```
-terminal ~ k rollout history deploy nginx
+$ k rollout history deploy nginx
 deployment.apps/nginx 
 REVISION  CHANGE-CAUSE
 1         <none>
@@ -329,7 +329,7 @@ spec:
 ```
 Let's check the pods status. Notice how the pods are run in parallel.
 ```
-terminal ~ k get po --watch
+$ k get po --watch
 NAME           READY   STATUS              RESTARTS   AGE
 cowsay-6lrxg   0/1     ContainerCreating   0          2s
 cowsay-cs44j   0/1     ContainerCreating   0          2s
@@ -362,7 +362,7 @@ spec:
 <p>
 
 ```
-terminal ~ k logs pi-r8bb2
+$ k logs pi-r8bb2
 3.1415926535897932384
 ```
 
