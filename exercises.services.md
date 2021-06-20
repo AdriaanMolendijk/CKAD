@@ -39,14 +39,14 @@ Let's see if we can connect to the nginx pod.
 $ k exec -it busybox -- sh
 ```
 ```
-busybox ~ wget 10.32.0.8:80
+busybox $ wget 10.32.0.8:80
 Connecting to 10.32.0.8:80 (10.32.0.8:80)
 saving to 'index.html'
 index.html           100% |**********************************************************************************************|   612  0:00:00 ETA
 'index.html' saved
 ```
 ```
-busybox ~ cat index.html
+busybox $ cat index.html
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,7 +106,7 @@ $ k exec -it busybox -- sh
 ```
 
 ```
-busybox ~ wget nginx:80
+busybox $ wget nginx:80
 Connecting to nginx:80 (10.99.214.196:80)
 saving to 'index.html'
 index.html           100% |**********************************************************************************************|   612  0:00:00 ETA
@@ -152,7 +152,7 @@ $ k exec -it busybox -- sh
 ```
 
 ```
-busybox ~ wget 172.17.0.72:30583
+busybox $ wget 172.17.0.72:30583
 Connecting to 172.17.0.72:30583 (172.17.0.72:30583)
 saving to 'index.html'
 index.html           100% |**********************************************************************************************|   612  0:00:00 ETA

@@ -351,15 +351,15 @@ $ k exec -it nginx -- sh
 ```
 
 ```
-nginx ~ whoami
+nginx $ whoami
 root
 ```
 ```
-nginx ~ id
+nginx $ id
 uid=0(root) gid=0(root) groups=0(root)
 ```
 ```
-nginx ~ date -s '1 JAN 2021'
+nginx $ date -s '1 JAN 2021'
 Fri Jan  1 00:00:00 UTC 2021 
 ```
 
